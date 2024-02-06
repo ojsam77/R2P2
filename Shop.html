@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/R2P2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R2P2 Shop</title>
+  </head>
+  <body class="jquery-ripples">
+    <div class="logo">
+      <img src="./src/assets/R2P2Logo.png" alt="">
+    </div>
+    <nav class="navbar">
+      <a onclick=showSidebar() href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Abouts Us.html">About Us</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Schedule.html">Schedule</a></li>
+          <li><a href="Learn.html">Learn</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+        </ul>
+      </div>
+      <ul class ="sidebar">
+        <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#646cff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Abouts Us.html">About Us</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Schedule.html">Schedule</a></li>
+        <li><a href="Learn.html">Learn</a></li>
+        <li><a href="Shop.html">Shop</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1>Shop</h1>
+      <div class="status"><p>Site Under Construction...</p></div>
+    </div>
+      <script type="module" src="/src/main.jsx"></script>
+  
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script src="js/jquery.ripples.js"></script>  
+      <script>
+        $(document).ready(function() {
+          $('body').ripples({
+              resolution: 512,
+              dropRadius: 20,
+              perturbance: 0.04
+            });
+        });
+      </script>
+      <script>
+       function showSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'flex'
+       }
+
+        function hideSidebar(){
+        const sidebar = document.querySelector('.sidebar')
+        sidebar.style.display = 'none'
+       }
+      </script>
+    </body>
+</html>
