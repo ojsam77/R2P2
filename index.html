@@ -7,50 +7,67 @@
     <title>R2P2</title>
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body class="jquery-ripples">
-    <div class="logo">
-      <img src="./src/assets/R2P2Logo.png" alt="">
-    </div>
-    <nav class="navbar">
-      <a onclick=showSidebar() href="#" class="toggle-button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+   <body class="jquery-ripples">
+    <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
+      <a href="#" class="button-primary w-button">Book Now</a>
+      </div>
+    </nav>
+    <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a> </div>
+    <nav class="navbar"> <a onclick="showSidebar()" href="#" class="toggle-button">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
       </a>
       <div class="navbar-links">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="Abouts Us.html">About Us</a></li>
+          <li><a href="Abouts%20Us.html">About Us</a></li>
           <li><a href="Services.html">Services</a></li>
+          <li><a href="index.html">Testimonal</a></li>
           <li><a href="Schedule.html">Schedule</a></li>
           <li><a href="Learn.html">Learn</a></li>
-          <!--<li><a href="Shop.html">Shop</a></li>-->
+          <li><a href="Shop.html">Shop</a></li>
         </ul>
       </div>
-      <ul class ="sidebar">
-        <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#646cff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Abouts Us.html">About Us</a></li>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+
+              height="24" viewBox="0 -960 960 960" width="24" fill="#646cff"><path
+
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"></path></svg></a><br>
+        </li>
+        <li><a href="Abouts%20Us.html">About Us</a></li>
         <li><a href="Services.html">Services</a></li>
+        <li><a href="index.html">Testimonal</a></li>
         <li><a href="Schedule.html">Schedule</a></li>
         <li><a href="Learn.html">Learn</a></li>
-        <!--<li><a href="Shop.html">Shop</a></li>-->
+        <li><a href="Shop.html">Shop</a></li>
       </ul>
     </nav>
-
     <div id="root"></div>
-
-    <div class="content">
-      <div class="status"><p>Site Under Construction...</p></div>
-    </div>
-
-      <script type="module" src="/src/main.jsx"></script>
-  
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-      <script src="jquery.ripples.js"></script>  
-      <script>
+    <section class="hero-subscribe-right ripples">
+      <div class="container">
+        <div class="hero-wrapper">
+          <div class="hero-split"><img src="./src/assets/Lotus Flower.png" loading="lazy" sizes="(max-width: 479px) 78vw, (max-width: 767px) 76vw, (max-width: 991px) 74vw, 23vw"  alt="" class="floating"></div>
+          <div class="hero-split">
+            <h1 class="heading-2">Discover you Life's Purpose</h1>
+            <p class="margin-bottom-24px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt sagittis eros. Quisque quis euismod lorem. Etiam sodales ac felis id interdum.</p>
+            <div class="hero-form w-form">
+              <form id="wf-form-Hero-Form" name="wf-form-Hero-Form" data-name="Hero Form" method="get" class="hero-form-container w-clearfix" data-wf-page-id="65f1a2cb7e4b8f9c996e4385" data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form"><input type="submit" data-wait="Please wait..." class="button-primary w-button" value="Get Started"></form>
+              <div class="w-form-done" tabindex="-1" role="region" aria-label="Hero Form success">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail" tabindex="-1" role="region" aria-label="Hero Form failure">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="jquery.ripples.js"></script>
+    <script>
         $(document).ready(function() {
-          $('body').ripples({
+          $('body, .pic, .hero-subscribe-right').ripples({
               resolution: 512,
               dropRadius: 20,
               perturbance: 0.04
@@ -66,8 +83,8 @@
           $el.ripples('drop', x, y, dropRadius, strength);
           }, 400);
         });
-      </script>
-      <script>
+    </script>
+    <script>
        function showSidebar(){
         const sidebar = document.querySelector('.sidebar')
         sidebar.style.display = 'flex'
@@ -78,5 +95,5 @@
         sidebar.style.display = 'none'
        }
       </script>
-    </body>
+  </body>
 </html>
