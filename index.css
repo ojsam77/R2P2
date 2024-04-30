@@ -154,8 +154,6 @@ a {
   box-shadow: 0 8px 50px rgba(0, 0, 0, .05);
 }
 
-
-
 .content{
   position:absolute;
   width: 80%;
@@ -523,6 +521,7 @@ h1 {
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
+  width: 479px;
 }
 
 @keyframes floating {
