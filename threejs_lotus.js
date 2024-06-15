@@ -60,7 +60,7 @@ function init() {
     {
       textureWidth: 512,
       textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load('./image.webp', function (texture) {
+      waterNormals: new THREE.TextureLoader().load('./src/assets/threejs_water-texture.webp', function (texture) {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       }),
       sunDirection: new THREE.Vector3(),
@@ -125,10 +125,10 @@ function init() {
   // Load GLTF model with DRACOLoader
   const loader = new GLTFLoader();
   const dracoLoader = new DRACOLoader();
-  dracoLoader.setDecoderPath('./draco/'); // Set the correct path to the Draco decoder
+  dracoLoader.setDecoderPath('./src/assets/draco/'); // Set the correct path to the Draco decoder
   loader.setDRACOLoader(dracoLoader);
 
-  loader.load('./lotus3_compressed.glb', function (gltf) {
+  loader.load('./src/assets/threejs_lotus-model.glb', function (gltf) {
     model = gltf.scene;
     group.add(model);
     group.position.set(0, 0, 0); // Start the group lower (adjust y value as needed)
@@ -166,7 +166,7 @@ function init() {
   function loadPistils() {
     const yellowMaterial = new THREE.MeshStandardMaterial({ color: 0xF5CD3E });
 
-    loader.load('./Lotus_pistil.glb', function (gltf) {
+    loader.load('./src/assets/threejs_pistil-model.glb', function (gltf) {
       const pistilModel = gltf.scene;
       const pistil = pistilModel.getObjectByName('pistil');
 
