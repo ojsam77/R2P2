@@ -111,6 +111,12 @@ a {
   color: #0ca756;
 }
 
+
+#container {
+  width: 100vw;
+  height:100vh;
+}
+
 .toggle-button {
   position: absolute;
   top: 1rem;
@@ -753,6 +759,7 @@ h1 {
   .cf-features-section-2-wrapper {
     padding-top: 140px;
   }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -841,4 +848,6 @@ h1 {
     padding-top: 100px;
     padding-bottom: 100px;
   }
+
+
 }
