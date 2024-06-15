@@ -477,7 +477,7 @@ h1 {
   padding: 80px 30px;
   position: relative;
   top: 24px;
-  background-image: url('../src/assets/water.png');
+  background-image: url('./src/assets/water.png');
   background-position: 0 0;
   background-size: contain;
 }
