@@ -25,9 +25,13 @@ body {
   min-width: 320px;
   min-height: 200vh;
   background: rgb(135,177,69);
-  background: linear-gradient(357deg, rgba(135,177,69,0.5410539215686274) 0%, rgba(226,236,210,1) 21%, rgba(242,246,234,1) 84%, rgba(255,255,255,1) 100%);
-
+  background: linear-gradient(357deg, rgba(135,177,69,0.5410539215686274) 0%, rgba(226,236,210,1) 21%, rgba(242,246,234,1) 84%, rgba(255,255,255,1) 100%)
   
+}
+
+#lotus-wrapper {
+  width: 100vw;
+  height:100vh;
 }
 
 .logo img{
