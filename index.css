@@ -629,6 +629,10 @@ h3 {
   text-decoration: none;
 }
 
+.div-block :hover{
+  color: #0ca756;
+}
+
 .div-block.nutrition {
   padding-top: 121px;
 }
