@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/R2P2.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R2P2 Services</title>
+  <link type="text/css" rel="stylesheet" href="index.css">
+</head>
+
+<body class="jquery-ripples">
+  <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
+    <a href="#" class="button-primary w-button">Embark Now</a>
+    </div>
+  </nav>
+  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a></div>
+  <nav class="navbar">
+    <a onclick=showSidebar() href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="Abouts%20Us.html">About Us</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Testimonial.html">Community Beat</a></li>
+        <li><a href="Schedule.html">Schedule</a></li>
+        <!-- <li><a href="Learn.html">Learn</a></li>
+      <li><a href="Shop.html">Shop</a></li>--> v
+      </ul>
+    </div>
+    <ul class="sidebar">
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+            width="24" fill="#646cff">
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+          </svg></a></li>
+      <li><a href="Abouts%20Us.html">About Us</a></li>
+      <li><a href="Services.html">Services</a></li>
+      <li><a href="Testimonial.html">Community Beat</a></li>
+      <li><a href="Schedule.html">Schedule</a></li>
+      <!-- <li><a href="Learn.html">Learn</a></li>
+      <li><a href="Shop.html">Shop</a></li>-->
+    </ul>
+  </nav>
+  <div class="cf-features-section-2">
+    <div class="cf-features-section-2-wrapper">
+      <h2 class="cf-features-section-2-heading">Movement</h2>
+      <div data-w-id="38a8a1cb-53f1-cbb2-bce6-fefb83cfec07" class="w-layout-grid cf-features-section-2-grid">
+        <div class="cf-features-section-2-grid-cell">
+          <div class="cf-features-section-2-image-wrapper">
+            <div class="div-block nutrition ripples">Nutrition
+              <a href="Nutrition.html">
+                <span class="link-spanner"></span>
+              </a>
+            </div>
+            <div class="w-dyn-list">
+              <div role="list" class="w-dyn-items">
+                <div role="listitem" class="w-dyn-item"></div>
+              </div>R2P2/Services.html
+            </div>
+          </div>
+          <p class="cf-service-paragraph">From quick Express Nutrition sessions to personalized Nutrition Counseling and
+            Meal Planning, we empower you to nourish your body with intention. Our Customized Cooking Classes elevate
+            your culinary skills with a personalized touch.</p>
+        </div>
+        <div class="cf-features-section-2-grid-cell homepage-3">
+          <div class="cf-features-section-2-image-wrapper">
+            <div class="div-block healing ripples">Healing
+              <a href="Healing.html">
+                <span class="link-spanner"></span>
+              </a>
+            </div>
+          </div>
+          <p class="cf-service-paragraph">Immerse yourself in the therapeutic power of Sound Healing and explore the
+            depths of your Soul Purpose. Our offerings include Dosha Identification, EFT Sessions, Ho’oponopono, and
+            Vibroacoustic Therapy for heart healing, self-alignment, and decompression.</p>
+        </div>
+        <div class="cf-features-section-2-grid-cell homepage-3">
+          <div class="cf-features-section-2-image-wrapper">
+            <div class="div-block yoga ripples">Yoga<br>
+              <a href="Yoga.html">
+                <span class="link-spanner"></span>
+              </a>
+            </div>
+          </div>
+          <p class="cf-service-paragraph">Discover a variety of classes tailored to your needs, from the transformative
+            Classic and physically challenging Vinyasa to the gentle Morning Practice and deeply relaxing Restorative
+            sessions. Also learn about Yoga Philosophy and delve into the ancient texts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="jquery.ripples.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('body').ripples({
+        resolution: 512,
+        dropRadius: 20,
+        perturbance: 0.04
+      });
+    });
+  </script>
+  <script>
+    function showSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+
+    function hideSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>
