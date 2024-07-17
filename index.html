@@ -11,7 +11,7 @@
 
 <body class="jquery-ripples">
   <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
-    <a href="#" class="button-primary w-button">Embark Now</a>
+    <a href="https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true" class="button-primary w-button">Embark Now</a>
     </div>
   </nav>
   <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2 Logo"></a> </div>
@@ -114,7 +114,7 @@
         <p class="cf-footer-paragraph-18px heading black">Main Pages</p>
         <a href="Abouts%20Us.html" class="cf-footer-link-18px black">About Us</a>
         <a href="Services.html" class="cf-footer-link-18px black">Services</a>
-        <a href="Testimonial.html" class="cf-footer-link-18px black">Comunnoyu</a>
+        <a href="Testimonial.html" class="cf-footer-link-18px black">Community Beat</a>
         <a href="Schedule.html" class="cf-footer-link-18px black">Schedule</a>
       </div>
       <div id="w-node-_3c611f58-b696-74f0-60bd-681ce825e9d0-996e4385" class="cf-footer-column">
@@ -164,6 +164,37 @@
       sidebar.style.display = 'none'
     }
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+      $('#button-primary w-button').click(function(event) {
+          event.preventDefault();
+          $('.code-block button').click();
+      });
+  });
+  </script>
+  <!-- Google Calendar Appointment Scheduling begin 
+   <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+   -->
+
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  var button = document.querySelector('.button-primary w-button')
+  
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+      color: '#039BE5',
+      label: 'Embark Now',
+      class: 'button-primary w-button',
+      target,
+    });
+  });
+})();
+</script>
+<!-- end Google Calendar Appointment Scheduling -->
 </body>
 
 </html>
