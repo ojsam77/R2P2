@@ -11,7 +11,22 @@
 
 <body class="jquery-ripples">
   <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
-    <a href="https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true" class="button-primary w-button">Embark Now</a>
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+      (function () {
+        var target = document.currentScript;
+        window.addEventListener('load', function () {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+            color: '#2e3192',
+            label: "Embark Now",
+            target,
+          });
+        });
+      })();
+    </script>
+    <!-- end Google Calendar Appointment Scheduling -->
     </div>
   </nav>
   <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2 Logo"></a> </div>
@@ -63,8 +78,23 @@
           <div class="hero-form w-form">
             <form id="wf-form-Hero-Form" name="wf-form-Hero-Form" data-name="Hero Form" method="get"
               class="hero-form-container w-clearfix" data-wf-page-id="65f1a2cb7e4b8f9c996e4385"
-              data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form"><input type="submit"
-                data-wait="Please wait..." class="button-primary w-button" value="Embark Now"></form>
+              data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form"><!-- Google Calendar Appointment Scheduling begin -->
+              <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+              <script>
+                (function () {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function () {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+                      color: '#2e3192',
+                      label: "Embark Now",
+                      target,
+                    });
+                  });
+                })();
+              </script>
+              <!-- end Google Calendar Appointment Scheduling -->
+              </form>
           </div>
         </div>
       </div>
@@ -165,36 +195,6 @@
     }
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-  <script>
-  $(document).ready(function() {
-      $('#button-primary w-button').click(function(event) {
-          event.preventDefault();
-          $('.code-block button').click();
-      });
-  });
-  </script>
-  <!-- Google Calendar Appointment Scheduling begin 
-   <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-   -->
-
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  var button = document.querySelector('.button-primary w-button')
-  
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
-      color: '#039BE5',
-      label: 'Embark Now',
-      class: 'button-primary w-button',
-      target,
-    });
-  });
-})();
-</script>
-<!-- end Google Calendar Appointment Scheduling -->
 </body>
 
 </html>

@@ -634,6 +634,74 @@ h3 {
   display: block;
 }
 
+.qxCTlb {
+  float: right;
+  color: #fff;
+  text-align: left;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #2e3192;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 25px;
+  font-size: 12px;
+  line-height: 20px;
+  transition: all .2s;
+  display: block;
+}
+
+.hur54b {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(32, 33, 36, .6);
+  padding: 72px;
+  z-index: 9999
+}
+
+.mmGMM {
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  height: 100%
+}
+
+.Xfsokf {
+  position: fixed;
+  top: 26px;
+  right: 72px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  border: none;
+  border-radius: 18px;
+  background-color: rgb(60, 64, 67);
+  height: 36px;
+  padding: 16px;
+  cursor: pointer
+}
+
+.L0Dvsd {
+  color: white;
+  font-size: 18px;
+  margin-right: 8px
+}
+
+.uE25ec {
+  font-size: 14px;
+  font-family: "Google Sans", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: .25px;
+  color: white
+}
+
 .button-primary:hover {
   color: #fff;
   background-color: #0ca756;
@@ -668,9 +736,11 @@ h3 {
 .div-block h4 {
   color: #fff;
 }
+
 .div-block h4:hover {
   color: #0ca756;
 }
+
 .div-block.nutrition {
   padding-top: 121px;
 }
@@ -681,7 +751,7 @@ h3 {
 
 .div-block.healing {
   background-image: url('src/assets/Healing/healing\ hands.jpg');
-  
+
   padding-top: 120px;
 }
 
