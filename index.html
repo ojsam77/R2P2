@@ -11,25 +11,10 @@
 
 <body class="jquery-ripples">
   <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
-    <!-- Google Calendar Appointment Scheduling begin -->
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-    <script>
-      (function () {
-        var target = document.currentScript;
-        window.addEventListener('load', function () {
-          calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
-            color: '#2e3192',
-            label: "Embark Now",
-            target,
-          });
-        });
-      })();
-    </script>
-    <!-- end Google Calendar Appointment Scheduling -->
+    <a href="#" class="button-primary w-button">Embark Now</a>
     </div>
   </nav>
-  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2 Logo"></a> </div>
+  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a> </div>
   <nav class="navbar"> <a onclick="showSidebar()" href="#" class="toggle-button">
       <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
     </a>
@@ -37,10 +22,10 @@
       <ul>
         <li><a href="Abouts%20Us.html">About Us</a></li>
         <li><a href="Services.html">Services</a></li>
-        <li><a href="Testimonial.html">Community Beat</a></li>
+        <li><a href="Testimonial.html">Testimonals</a></li>
         <li><a href="Schedule.html">Schedule</a></li>
-        <!-- <li><a href="Learn.html">Learn</a></li>
-      <li><a href="Shop.html">Shop</a></li>-->
+        <li><a href="Learn.html">Learn</a></li>
+        <li><a href="Shop.html">Shop</a></li>
       </ul>
     </div>
     <ul class="sidebar">
@@ -52,24 +37,22 @@
       </li>
       <li><a href="Abouts%20Us.html">About Us</a></li>
       <li><a href="Services.html">Services</a></li>
-      <li><a href="Testimonial.html">Community Beat</a></li>
+      <li><a href="Testimonial.html">Testimonals</a></li>
       <li><a href="Schedule.html">Schedule</a></li>
-      <!-- <li><a href="Learn.html">Learn</a></li>
-      <li><a href="Shop.html">Shop</a></li>-->
+      <li><a href="Learn.html">Learn</a></li>
+      <li><a href="Shop.html">Shop</a></li>
     </ul>
   </nav>
   <div id="root"></div>
-  <!--Test Comment 2-->
   <section class="hero-subscribe-right ripples">
     <div class="container">
       <div class="hero-wrapper">
-        <div class="hero-split"><img src="./src/assets/Lotus Flower.webp"
+        <div class="hero-split"><img src="./src/assets/Lotus Flower.png" loading="lazy"
             sizes="(max-width: 479px) 78vw, (max-width: 767px) 76vw, (max-width: 991px) 74vw, 23vw" alt=""
             class="floating"></div>
         <div class="hero-split">
           <h1 class="heading-2">Discover Your Life's Purpose</h1>
-          <p class="margin-bottom-24px" style="color: white">Welcome to R2P2 Wellness: Elevate Your Well-being
-            Holistically
+          <p class="home-text">Welcome to R2P2 Wellness: Elevate Your Well-being Holistically
 
             At R2P2 Wellness, we invite you to embark on a transformative journey where physical vitality, emotional
             balance, and spiritual awakening converge. Our array of services is meticulously designed to cater to every
@@ -78,28 +61,17 @@
           <div class="hero-form w-form">
             <form id="wf-form-Hero-Form" name="wf-form-Hero-Form" data-name="Hero Form" method="get"
               class="hero-form-container w-clearfix" data-wf-page-id="65f1a2cb7e4b8f9c996e4385"
-              data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form">
-              <!-- Google Calendar Appointment Scheduling begin -->
-              <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-              <script>
-                (function () {
-                  var target = document.currentScript;
-                  window.addEventListener('load', function () {
-                    calendar.schedulingButton.load({
-                      url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
-                      color: '#2e3192',
-                      label: "Embark Now",
-                      target,
-                    });
-                  });
-                })();
-              </script>
-              <!-- end Google Calendar Appointment Scheduling -->
-            </form>
+              data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form"><input type="submit"
+                data-wait="Please wait..." class="button-primary w-button" value="Embark Now"></form>
+            <div class="w-form-done" tabindex="-1" role="region" aria-label="Hero Form success">
+              <div>Thank you! Your submission has been received!</div>
+            </div>
+            <div class="w-form-fail" tabindex="-1" role="region" aria-label="Hero Form failure">
+              <div>Oops! Something went wrong while submitting the form.</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </section>
   <div class="cf-footer-section-white">
@@ -119,6 +91,9 @@
           <a href="http://www.instagram.com" target="_blank"
             class="cf-footer-link-gradient-hover-black-copy-no-margin w-inline-block"><img
               src="images/instagram-icon.svg" loading="lazy" alt="" class="cf-features-section-1-image-contai"></a>
+          <a href="http://www.dribbble.com" target="_blank"
+            class="cf-footer-link-gradient-hover-black w-inline-block"><img src="images/Vector-white.svg" loading="lazy"
+              alt="" class="cf-features-section-1-image-contai"></a>
         </div>
       </div>
       <div class="cf-footer-top-right">
@@ -167,7 +142,7 @@
   <script src="jquery.ripples.js"></script>
   <script>
     $(document).ready(function () {
-      $('.hero-subscribe-right').ripples({
+      $('.pic, .hero-subscribe-right').ripples({
         resolution: 512,
         dropRadius: 20,
         perturbance: 0.04
@@ -195,7 +170,6 @@
       sidebar.style.display = 'none'
     }
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </body>
 
 </html>
