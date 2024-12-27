@@ -11,8 +11,20 @@
 
 <body class="jquery-ripples">
   <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
-    <a href="#" class="button-primary w-button">Embark Now</a>
-    </div>
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+      (function () {
+        var target = document.currentScript;
+        window.addEventListener('load', function () {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+            color: '#2e3192',
+            label: "Embark Now",
+            target,
+          });
+        });
+      })();
+    </script>
   </nav>
   <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a> </div>
   <nav class="navbar"> <a onclick="showSidebar()" href="#" class="toggle-button">
@@ -54,18 +66,19 @@
             balance, and spiritual awakening converge. Our array of services is meticulously designed to cater to every
             facet of your well-being:
           </p>
-          <div class="hero-form w-form">
-            <form id="wf-form-Hero-Form" name="wf-form-Hero-Form" data-name="Hero Form" method="get"
-              class="hero-form-container w-clearfix" data-wf-page-id="65f1a2cb7e4b8f9c996e4385"
-              data-wf-element-id="3bf5e3a0-c108-2885-a81a-b981590bc93a" aria-label="Hero Form"><input type="submit"
-                data-wait="Please wait..." class="button-primary w-button" value="Embark Now"></form>
-            <div class="w-form-done" tabindex="-1" role="region" aria-label="Hero Form success">
-              <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="w-form-fail" tabindex="-1" role="region" aria-label="Hero Form failure">
-              <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
-          </div>
+          <script>
+            (function () {
+              var target = document.currentScript;
+              window.addEventListener('load', function () {
+                calendar.schedulingButton.load({
+                  url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+                  color: '#2e3192',
+                  label: "Embark Now",
+                  target,
+                });
+              });
+            })();
+          </script>
         </div>
       </div>
     </div>
