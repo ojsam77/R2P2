@@ -1266,6 +1266,15 @@ h3 {
   left: 16px;
   right: 16px;
 }
+.gallery-image-description {
+  color: #f5f7fa;
+  text-shadow: 3px 3px 4px rgb(0 0 0);
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 16px;
+
+  right: 16px;
+}
 
 .udesly-paragraph-medium {
   font-size: 16px;
