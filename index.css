@@ -1268,6 +1268,7 @@ h3 {
 }
 .gallery-image-description {
   color: #f5f7fa;
+  font-size: 14px;
   text-shadow: 3px 3px 4px rgb(0 0 0);
   margin-bottom: 0;
   position: absolute;
