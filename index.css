@@ -9,7 +9,7 @@
 :root {
   font-family: Montserrat, system-ui;
   line-height: 1.5;
-  font-weight: 00;
+  font-weight: 100;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -1267,13 +1267,13 @@ h3 {
   right: 16px;
 }
 .gallery-image-description {
-  width: 50px;
+  width: 300px;
   color: #f5f7fa;
   font-size: 14px;
   text-shadow: 3px 3px 4px rgb(0 0 0);
   margin-bottom: 0;
   position: absolute;
-  bottom: 16px;
+  bottom: 25px;
   right: 16px;
 }
 
