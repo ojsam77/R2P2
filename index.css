@@ -7,7 +7,7 @@
 }
 
 :root {
-  font-family: Montserrat, system-ui;
+  font-family: Montserrat;
   line-height: 1.5;
   font-weight: bold;
 
@@ -765,7 +765,7 @@ h3 {
 
 .cf-services-paragraph {
   margin-bottom: 40px;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat;
   font-size: 18px;
   font-weight: 400;
   line-height: 156%;
@@ -774,7 +774,7 @@ h3 {
 .cf-services-h2-heading {
   margin-top: 0;
   margin-bottom: 24px;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat;
   font-size: 32px;
   font-weight: 700;
   line-height: 120%;
@@ -898,8 +898,8 @@ h3 {
 }
 
 .cf-footer-paragraph-18px.heading.black {
-  color: #0d0e10;
-  font-family: Montserrat, sans-serif;
+  color: #222467;
+  font-family: Montserrat;
 }
 
 .cf-footer-column {
@@ -922,7 +922,7 @@ h3 {
   color: #fff;
   background-color: rgba(252, 107, 92, .3);
   border-radius: 5px;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat;
   font-size: 16px;
   font-weight: 500;
 }
@@ -995,7 +995,7 @@ h3 {
 }
 
 .cf-form-text-field.black {
-  color: #0d0e10;
+  color: #222467;
   background-image: url('../images/EnvelopeSimple.svg');
 }
 
@@ -1004,7 +1004,7 @@ h3 {
 }
 
 .cf-email-form {
-  color: #0d0e10;
+  color: #222467;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding-bottom: 19px;
   position: relative;
@@ -1015,7 +1015,7 @@ h3 {
 }
 
 .cf-subscribe-text {
-  color: #0d0e10;
+  color: #222467;
   margin-bottom: 40px;
   font-size: 24px;
   font-weight: 500;
@@ -1033,7 +1033,7 @@ h3 {
 }
 
 .cf-footer-link-gradient-hover-black-copy-no-margin {
-  background-color: #0d0e10;
+  background-color: #222467;
   border-radius: 50px;
   justify-content: center;
   align-items: center;
@@ -1048,7 +1048,7 @@ h3 {
 }
 
 .cf-footer-link-gradient-hover-black {
-  background-color: #0d0e10;
+  background-color: #222467;
   border-radius: 50px;
   justify-content: center;
   align-items: center;
@@ -1065,7 +1065,7 @@ h3 {
 }
 
 .cf-footer-link-gradient-hover {
-  background-color: #0d0e10;
+  background-color: #222467;
   border-radius: 50px;
   justify-content: center;
   align-items: center;
@@ -1084,7 +1084,7 @@ h3 {
 }
 
 .cf-footer-paragraph-16px {
-  color: #0d0e10;
+  color: #222467;
   text-align: left;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -1124,7 +1124,7 @@ h3 {
 }
 
 .cf-navigation-1-logo {
-  color: #000;
+  color: #222467;
   align-items: center;
   margin-bottom: 0;
   padding-top: 0;
