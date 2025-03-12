@@ -1590,8 +1590,7 @@ img {
   grid-template-areas: 
   "box-1 box-2 "
   "box-1 box-3";
-  color: #1a1c57;
-}
+ }
 
 @media screen and (max-width: 991px) {
   .container {
