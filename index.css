@@ -1582,6 +1582,14 @@ img {
   height: 400px;
 }
 
+.grid-container{
+  display: grid;
+  gap: 1em;
+  grid-template-areas: 
+  "box-1 box-2 "
+  "box-1 box-3";
+
+}
 
 @media screen and (max-width: 991px) {
   .container {
