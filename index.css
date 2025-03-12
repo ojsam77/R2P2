@@ -1584,6 +1584,8 @@ img {
 
 .grid-container{
   display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   gap: 1em;
   grid-template-areas: 
   "box-1 box-2 "
