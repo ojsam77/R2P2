@@ -4,16 +4,20 @@
 
 * {
   box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
 }
-html{
-  font-family: Montserrat;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 :root {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
-  font-weight: bold;
-
+  font-weight: 500;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
@@ -30,13 +34,11 @@ body {
   background: rgb(135, 177, 69);
   background: linear-gradient(357deg, rgba(74, 215, 4, 0.667) 0%, rgba(226, 236, 210, 1) 21%, rgba(242, 246, 234, 1) 84%, rgba(255, 255, 255, 1) 100%);
   max-width: 100%;
-
 }
 
 .logo img {
   height: 20vh;
   width: 20.04vh;
-
   text-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
   display: block;
   margin-left: auto;
@@ -45,7 +47,6 @@ body {
 
 .navbar {
   display: flex;
-
   align-items: center;
   width: 100%;
   justify-content: center;
@@ -212,10 +213,6 @@ h3 {
   top: 0;
   left: 0;
   z-index: 1;
-
-  /* edit: fixes overlap error in IE7/8, 
-     make sure you have an empty gif 
-  background-image: url('empty.gif');*/
 }
 
 .content h1 {
@@ -497,7 +494,6 @@ h3 {
 
 .hero-wrapper {
   justify-content: space-between;
-
   display: flex;
 }
 
@@ -607,7 +603,6 @@ h3 {
   color: rgba(26, 27, 31, .8);
 }
 
-
 .button-primary {
   float: right;
   color: #fff;
@@ -649,7 +644,7 @@ h3 {
   box-sizing: border-box;
   background-color: rgba(32, 33, 36, .6);
   padding: 72px;
-  z-index: 9999
+  z-index: 9999;
 }
 
 .mmGMM {
@@ -657,7 +652,7 @@ h3 {
   border-radius: 8px;
   background-color: white;
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
 .Xfsokf {
@@ -675,13 +670,13 @@ h3 {
   background-color: rgb(60, 64, 67);
   height: 36px;
   padding: 16px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .L0Dvsd {
   color: white;
   font-size: 18px;
-  margin-right: 8px
+  margin-right: 8px;
 }
 
 .uE25ec {
@@ -689,7 +684,7 @@ h3 {
   font-family: "Google Sans", Arial, sans-serif;
   font-weight: 500;
   letter-spacing: .25px;
-  color: white
+  color: white;
 }
 
 .button-primary:hover {
@@ -741,7 +736,6 @@ h3 {
 
 .div-block.healing {
   background-image: url('src/assets/Healing/healing\ hands.jpg');
-
   padding-top: 120px;
 }
 
@@ -764,7 +758,6 @@ h3 {
   background-image: url('src/assets/pilates.jpg');
   padding-top: 117px;
 }
-
 
 .cf-services-paragraph {
   margin-bottom: 40px;
@@ -1170,6 +1163,60 @@ h3 {
   display: flex;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+  }
+
+  .nav-menu-three {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-split {
+    max-width: 100%;
+  }
+
+  .gallery-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media (max-width: 690px) {
   .toggle-button {
@@ -1180,7 +1227,6 @@ h3 {
     display: none;
   }
 }
-
 
 .gallery-scroll {
   background-color: rgba(245, 247, 250, 0);
@@ -1255,6 +1301,7 @@ h3 {
   left: 16px;
   right: 16px;
 }
+
 .gallery-image-description {
   width: 320px;
   font-weight: bold;
@@ -1405,7 +1452,7 @@ h3 {
   overflow: auto;
 }
 
-.floater{
+.floater {
   position: fixed;
 }
 
@@ -1444,7 +1491,6 @@ h3 {
 .margin-bottom-24px {
   color: #1a1c57;
   margin-bottom: 24px;
-
   font-weight: 600;
 }
 
@@ -1585,7 +1631,7 @@ img {
   height: 400px;
 }
 
-.grid-container{
+.grid-container {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
@@ -1593,122 +1639,6 @@ img {
   grid-template-areas: 
   "box-1 box-2 "
   "box-1 box-3";
- }
-
-@media screen and (max-width: 991px) {
-  .container {
-    max-width: 728px;
-  }
-
-  .navbar-wrapper-three {
-    justify-content: space-between;
-  }
-
-  .navbar-brand-three {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    display: flex;
-    position: relative;
-  }
-
-  .nav-menu-wrapper-three {
-    background-color: rgba(0, 0, 0, 0);
-    top: 70px;
-  }
-
-  .nav-menu-three {
-    background-color: #fff;
-    border-radius: 50px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    padding: 20px;
-    display: flex;
-    box-shadow: 0 8px 50px rgba(0, 0, 0, .05);
-  }
-
-  .nav-link {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  .nav-dropdown-list.shadow-three.w--open {
-    position: absolute;
-  }
-
-  .menu-button {
-    padding: 12px;
-  }
-
-  .menu-button.w--open {
-    color: #fff;
-    background-color: #a6b1bf;
-  }
-
-  .image {
-    float: left;
-    text-align: center;
-    flex: 0 auto;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cf-features-section-2-grid {
-    grid-row-gap: 80px;
-    grid-template-columns: 1fr 1fr;
-    max-width: 700px;
-  }
-
-  .cf-features-section-2-heading {
-    max-width: 600px;
-    font-size: 30px;
-  }
-
-  .cf-features-section-2-wrapper {
-    padding-top: 140px;
-  }
-
-  .cf-services-right-contain {
-    width: 100%;
-  }
-
-  .cf-services-h2-heading {
-    font-size: 30px;
-  }
-
-  .cf-services-left-contain {
-    width: 100%;
-    margin-top: 60px;
-  }
-
-  .cf-services-page-contain,
-  .cf-services-page-contain.reverse {
-    flex-direction: column-reverse;
-  }
-
-  .container-2 {
-    max-width: 728px;
-  }
-
-  .gallery-wrapper {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .gallery-sticky {
-    position: relative;
-    top: 0;
-  }
-
-  .udesly-image-wrapper {
-    max-height: 400px;
-  }
-
-  .udesly-article-wrapper {
-    grid-row-gap: 56px;
-    grid-template-columns: 1fr;
-  }
 }
 
 @media screen and (max-width: 991px) {
