@@ -5,29 +5,8 @@
   <meta charset="UTF-8" />
   <link type="text/css" rel="stylesheet" href="index.css">
   <link rel="icon" type="image/svg+xml" href="/R2P2.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <meta name="theme-color" content="#2e3192">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="R2P2 Wellness">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="description" content="Explore R2P2 Wellness services including nutrition counseling, healing therapies, and movement classes for holistic wellness.">
-  <meta name="keywords" content="wellness services, nutrition, healing, movement, yoga, holistic health">
-  <meta name="author" content="R2P2 Wellness">
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="index.css" as="style">
-  <link rel="preload" href="./src/assets/R2P2Logo.png" as="image">
-  
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://calendar.google.com">
-  
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/manifest.json">
-  
-  <title>R2P2 Services - Nutrition, Healing & Movement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R2P2 Services</title>
 </head>
 
 <body class="jquery-ripples">
@@ -47,9 +26,9 @@
       })();
     </script>
   </nav>
-  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2 Wellness Logo" loading="eager"></a></div>
+  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a></div>
   <nav class="navbar">
-    <a onclick="showSidebar()" href="#" class="toggle-button" aria-label="Open navigation menu">
+    <a onclick=showSidebar() href="#" class="toggle-button">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
@@ -63,7 +42,7 @@
       </ul>
     </div>
     <ul class="sidebar">
-      <li onclick="hideSidebar()"><a href="#" aria-label="Close navigation menu"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+      <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
             width="24" fill="#646cff">
             <path
               d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
@@ -101,7 +80,7 @@
             </div>
           </div>
           <p class="cf-service-paragraph">Immerse yourself in the therapeutic power of Sound Healing and explore the
-            depths of your Soul Purpose. Our offerings include Dosha Identification, EFT Sessions, Ho'oponopono, and
+            depths of your Soul Purpose. Our offerings include Dosha Identification, EFT Sessions, Ho’oponopono, and
             Vibroacoustic Therapy for heart healing, self-alignment, and decompression.</p>
         </div>
         <div class="cf-features-section-2-grid-cell homepage-3">
@@ -123,7 +102,6 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="jquery.ripples.js"></script>
-  <script src="register-sw.js"></script>
   <script>
     $(document).ready(function () {
       $('body').ripples({
@@ -136,42 +114,13 @@
   <script>
     function showSidebar() {
       const sidebar = document.querySelector('.sidebar')
-      const toggleButton = document.querySelector('.toggle-button')
       sidebar.style.display = 'flex'
-      sidebar.classList.add('active')
-      toggleButton.classList.add('active')
-      document.body.style.overflow = 'hidden'
     }
 
     function hideSidebar() {
       const sidebar = document.querySelector('.sidebar')
-      const toggleButton = document.querySelector('.toggle-button')
-      sidebar.classList.remove('active')
-      toggleButton.classList.remove('active')
-      setTimeout(() => {
-        sidebar.style.display = 'none'
-        document.body.style.overflow = 'auto'
-      }, 300)
+      sidebar.style.display = 'none'
     }
-
-    // Close sidebar when clicking outside
-    document.addEventListener('click', function(event) {
-      const sidebar = document.querySelector('.sidebar')
-      const toggleButton = document.querySelector('.toggle-button')
-      
-      if (sidebar.style.display === 'flex' && 
-          !sidebar.contains(event.target) && 
-          !toggleButton.contains(event.target)) {
-        hideSidebar()
-      }
-    })
-
-    // Close sidebar on escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        hideSidebar()
-      }
-    })
   </script>
 </body>
 
