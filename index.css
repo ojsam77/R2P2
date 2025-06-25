@@ -1828,3 +1828,14 @@ img {
   padding-top: 40px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.youtube-footer-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin: 0 auto;
+}
+
+.cf-footer-link-gradient-hover-black.w-inline-block[href="https://www.youtube.com/@ClubR2P2"] {
+  margin-left: 0 !important;
+}
