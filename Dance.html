@@ -14,7 +14,8 @@
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 6px 0 rgba(44, 62, 80, 0.10) inset;
       border-radius: 32px;
       margin: 60px auto 60px auto;
-      max-width: 900px;
+      max-width: 1400px;
+      width: 95%;
       padding: 48px 32px 32px 32px;
       display: flex;
       flex-direction: column;
@@ -32,32 +33,81 @@
     }
     .dance-row {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       width: 100%;
     }
+    .dance-row.right {
+      justify-content: flex-end;
+    }
     .dance-section {
-      background: rgba(255,255,255,0.13);
+      background: linear-gradient(135deg, rgba(74, 215, 4, 0.25) 0%, rgba(34, 139, 34, 0.35) 100%), url('src/assets/lily-pad-texture.png');
+      background-size: cover;
+      background-blend-mode: overlay, multiply;
       box-shadow: 0 2px 8px 0 rgba(44, 62, 80, 0.07) inset;
       border-radius: 20px;
-      width: 45%;
-      padding: 32px 18px 24px 18px;
+      width: 60%;
+      min-height: 220px;
+      padding: 40px 24px 32px 24px;
       text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.25s cubic-bezier(.4,1.4,.6,1), box-shadow 0.25s cubic-bezier(.4,1.4,.6,1);
       cursor: pointer;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      box-sizing: border-box;
+      margin-bottom: 32px;
     }
-    .dance-section:hover {
-      transform: translateY(-8px) scale(1.04);
-      box-shadow: 0 8px 24px 0 rgba(44, 62, 80, 0.13);
-      background: rgba(255,255,255,0.22);
+    .dance-section:hover, .dance-section:focus {
+      animation: dance-bounce 0.7s cubic-bezier(.4,1.4,.6,1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 12px 0 rgba(44, 62, 80, 0.18) inset;
+      z-index: 2;
+    }
+    .dance-section * {
+      color: white !important;
+    }
+    .dance-section.reverse {
+      flex-direction: row-reverse;
+    }
+    .dance-section-inner {
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .dance-section-title {
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: 700;
       color: white;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
       letter-spacing: 1px;
       text-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    }
+    .dance-section-title.left {
+      text-align: left;
+    }
+    .dance-section-title.right {
+      text-align: right;
+    }
+    .dance-section-image {
+      width: 260px;
+      height: 260px;
+      max-width: 45vw;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      margin: 0 0 0 24px;
+      flex-shrink: 0;
+      background: #e0e0e0;
+    }
+    .dance-section.reverse .dance-section-image {
+      margin: 0 24px 0 0;
     }
     .dance-section-content {
       color: white;
@@ -67,24 +117,43 @@
       margin-top: 8px;
     }
     .dance-section-content p {
-      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin: 0 0 0 0;
       text-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
     .main-title {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 4rem;
       font-weight: 700;
-      color: white;
-      margin: 0 0 20px 0;
+      margin: 0 0 32px 0;
       letter-spacing: 2px;
-      text-shadow: 0 4px 18px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.18);
+      text-shadow: 0 4px 18px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.12);
       text-transform: uppercase;
       font-style: italic;
+      line-height: 1.1;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .main-title-gradient {
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 50%,  #228b22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    .main-title-emoji {
+      color: #fff;
+      font-style: normal;
+      font-size: 0.9em;
+      vertical-align: middle;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
     @media (max-width: 900px) {
       .dance-inset-box {
-        gap: 24px;
-        padding: 32px 8px;
+        max-width: 100vw;
+        width: 100%;
       }
       .dance-sections-container {
         gap: 24px;
@@ -93,14 +162,45 @@
         flex-direction: column;
         gap: 24px;
       }
-      .dance-section {
+      .dance-section, .dance-section.reverse {
+        flex-direction: column !important;
+        align-items: flex-start;
         width: 100%;
-        margin: 0;
+        min-height: unset;
+        padding: 24px 8px 18px 8px;
+        gap: 24px;
+      }
+      .dance-section-image {
+        margin: 16px 0 0 0 !important;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        align-self: center;
+      }
+      .dance-section-inner {
+        text-align: left;
+        align-items: flex-start;
       }
       .main-title {
-        font-size: 2rem;
-        margin: 0 0 15px 0;
+        font-size: 2.2rem;
+        margin: 0 0 18px 0;
+        line-height: 1.15;
       }
+      .dance-section-title {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+      }
+      .dance-section-content p {
+        font-size: 1rem;
+      }
+    }
+    @keyframes dance-bounce {
+      0% { transform: scale(1) translateY(0); }
+      20% { transform: scale(1.06, 0.97) translateY(-8px); }
+      40% { transform: scale(0.98, 1.04) translateY(2px); }
+      60% { transform: scale(1.03, 0.98) translateY(-4px); }
+      80% { transform: scale(0.99, 1.01) translateY(1px); }
+      100% { transform: scale(1) translateY(0); }
     }
   </style>
 </head>
@@ -144,34 +244,50 @@
   </nav>
   <main>
     <div class="dance-inset-box ripples">
-      <h1 class="main-title"><em>Äfrikañization 🌍</em></h1>
+      <h1 class="main-title"><span class="main-title-gradient">Äfrikañization</span> <span class="main-title-emoji">🌍</span></h1>
       <div class="dance-sections-container">
         <div class="dance-row">
           <div class="dance-section">
-            <div class="dance-section-title">AfroBounce</div>
-            <div class="dance-section-content">
-              <p>Fast-paced series of movements, targeting different muscle groups that will continuously make you "Bounce" We will be increasing our fitness, focus, and fun.</p>
+            <div class="dance-section-inner">
+              <div class="dance-section-title left">AfroBounce</div>
+              <div class="dance-section-content">
+                <p>Fast-paced series of movements, targeting different muscle groups that will continuously make you "Bounce" We will be increasing our fitness, focus, and fun.</p>
+              </div>
             </div>
+            <img src="src/assets/Dance/AfroBounce.jpg" alt="AfroBounce" class="dance-section-image" />
           </div>
-          <div class="dance-section">
-            <div class="dance-section-title">Dance 101</div>
-            <div class="dance-section-content">
-              <p>Will mold how you get in sync with music so that it is a catalyst for repetitive motion. We will establish how you already have rhythm, improve how you listen to music, and expose you to what moves your body is capable of. This will help beginners start moving and stay in motion regardless of what the music is.</p>
+        </div>
+        <div class="dance-row right">
+          <div class="dance-section reverse">
+            <div class="dance-section-inner">
+              <div class="dance-section-title right">Dance 101</div>
+              <div class="dance-section-content">
+                <p>Will mold how you get in sync with music so that it is a catalyst for repetitive motion. We will establish how you already have rhythm, improve how you listen to music, and expose you to what moves your body is capable of. This will help beginners start moving and stay in motion regardless of what the music is.</p>
+              </div>
             </div>
+            <img src="src/assets/Dance/Dance 101.jpg" alt="Dance 101" class="dance-section-image" />
           </div>
         </div>
         <div class="dance-row">
           <div class="dance-section">
-            <div class="dance-section-title">Intermediate Dance</div>
-            <div class="dance-section-content">
-              <p>Tailored to you as an individual, where we will identify what can make you a better dancer/performer. This is a class for you to polish, your moves, expression, and perception as a dancer. Expect to create 4 custom cerographs by the end of the class.</p>
+            <div class="dance-section-inner">
+              <div class="dance-section-title left">Intermediate Dance</div>
+              <div class="dance-section-content">
+                <p>Tailored to you as an individual, where we will identify what can make you a better dancer/performer. This is a class for you to polish, your moves, expression, and perception as a dancer. Expect to create 4 custom cerographs by the end of the class.</p>
+              </div>
             </div>
+            <img src="src/assets/Dance/Intermediate Dance.jpg" alt="Intermediate Dance" class="dance-section-image" />
           </div>
-          <div class="dance-section">
-            <div class="dance-section-title">Advanced Dance</div>
-            <div class="dance-section-content">
-              <p>A time to dance like no one is watching. We will push each other to try something new. This is a freestyle class that will boost your confidence, reintroduce your personality, and experience true freedom as a dancer. If you are here you should feel music and use this class as an outlet to keep dance as apart of your life.</p>
+        </div>
+        <div class="dance-row right">
+          <div class="dance-section reverse">
+            <div class="dance-section-inner">
+              <div class="dance-section-title right">Advanced Dance</div>
+              <div class="dance-section-content">
+                <p>A time to dance like no one is watching. We will push each other to try something new. This is a freestyle class that will boost your confidence, reintroduce your personality, and experience true freedom as a dancer. If you are here you should feel music and use this class as an outlet to keep dance as apart of your life.</p>
+              </div>
             </div>
+            <img src="src/assets/Dance/Advanced Dance.jpg" alt="Advanced Dance" class="dance-section-image" />
           </div>
         </div>
       </div>
@@ -214,9 +330,9 @@
     $(document).ready(function () {
       // Initialize ripples on the dance-inset-box
       $('.dance-inset-box').ripples({
-        resolution: 256,
-        dropRadius: 18,
-        perturbance: 0.015
+        resolution: 512,
+        dropRadius: 20,
+        perturbance: 0.08
       });
       // Add ripple on mouse move
       $('.dance-inset-box').mousemove(function(e) {
