@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/R2P2.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R2P2 Quiz</title>
+  <link type="text/css" rel="stylesheet" href="index.css">
+  <style>
+    .quiz-container {
+      max-width: 900px;
+      margin: 60px auto 40px auto;
+      background: #f5f7fa;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(46,49,146,0.08);
+      padding: 32px 24px 40px 24px;
+      position: relative;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 24px;
+      background: #e0e3f3;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #2e3192 0%, #b16cea 100%);
+      border-radius: 12px;
+      width: 0%;
+      transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .quiz-title {
+      font-size: 2rem;
+      color: #2e3192;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .quiz-content {
+      min-height: 120px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .quiz-footer {
+      text-align: center;
+      margin-top: 24px;
+    }
+    .quiz-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 32px 0 0 0;
+    }
+    .quiz-btn {
+      background: linear-gradient(90deg, #2e3192 0%, #b16cea 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 14px 36px;
+      font-size: 1.1em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(46,49,146,0.08);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .quiz-btn:hover, .quiz-btn:focus {
+      background: linear-gradient(90deg, #b16cea 0%, #2e3192 100%);
+      transform: translateY(-2px) scale(1.04);
+      outline: none;
+    }
+    @media (max-width: 600px) {
+      .quiz-container {
+        padding: 16px 4vw 24px 4vw;
+      }
+      .quiz-title {
+        font-size: 1.2rem;
+      }
+      .quiz-btn-group {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .quiz-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body class="jquery-ripples">
+  <!-- Header/Navbar copied from main site -->
+  <nav role="navigation" class="nav-menu-wrapper-three w-clearfix w-nav-menu">
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+      (function () {
+        var target = document.currentScript;
+        window.addEventListener('load', function () {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/AcZssZ1vFZDKGDoMNxED-8op6bS4BfpMUCUB3ci1ogM=?gv=true',
+            color: '#2e3192',
+            label: "Embark Now",
+            target,
+          });
+        });
+      })();
+    </script>
+  </nav>
+  <div class="logo"><a href="index.html"><img src="./src/assets/R2P2Logo.png" alt="R2P2Logo"></a></div>
+  <nav class="navbar"> <a onclick="showSidebar()" href="#" class="toggle-button">
+      <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="Abouts%20Us.html">About Us</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Testimonial.html">Community Beat</a></li>
+        <li><a href="Schedule.html">Schedule</a></li>
+      </ul>
+    </div>
+    <ul class="sidebar">
+      <li onclick="hideSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+            viewBox="0 -960 960 960" width="24" fill="#646cff">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z">
+            </path>
+          </svg></a><br>
+      </li>
+      <li><a href="Abouts%20Us.html">About Us</a></li>
+      <li><a href="Services.html">Services</a></li>
+      <li><a href="Testimonial.html">Community Beat</a></li>
+      <li><a href="Schedule.html">Schedule</a></li>
+    </ul>
+  </nav>
+  <div id="root"></div>
+
+  <!-- Quiz Content -->
+  <div class="quiz-container">
+    <div class="progress-bar-bg">
+      <div class="progress-bar" id="quiz-progress-bar"></div>
+    </div>
+    <div class="quiz-title">R2P2 Wellness Quiz</div>
+    <div class="quiz-content" id="quiz-content">
+      <!-- Questions will go here -->
+      <p>Welcome! The quiz will begin soon.</p>
+    </div>
+    <div class="quiz-footer">
+      <button id="quiz-next-btn" style="display:none;" class="button-primary">Next</button>
+    </div>
+  </div>
+
+  <!-- Footer copied from main site -->
+  <div class="footer">
+    <div class="w-layout-grid cf-footer-grid">
+      <div id="w-node-_3c611f58-b696-74f0-60bd-681ce825e9c1-996e4385" class="cf-footer-column">
+        <p class="cf-footer-paragraph-18px heading black">Main Pages</p>
+        <a href="Abouts%20Us.html" class="cf-footer-link-18px black">About Us</a>
+        <a href="Services.html" class="cf-footer-link-18px black">Services</a>
+        <a href="Testimonial.html" class="cf-footer-link-18px black">Community Beat</a>
+        <a href="Schedule.html" class="cf-footer-link-18px black">Schedule</a>
+      </div>
+      <div id="w-node-_3c611f58-b696-74f0-60bd-681ce825e9d0-996e4385" class="cf-footer-column">
+        <p class="cf-footer-paragraph-18px heading black">Services Pages</p>
+        <a href="Nutrition.html" class="cf-footer-link-18px black">Nutrition</a>
+        <a href="Healing.html" class="cf-footer-link-18px black">Healing</a>
+        <a href="Movement.html" class="cf-footer-link-18px black">Movement</a>
+      </div>
+      <div id="w-node-_3c611f58-b696-74f0-60bd-681ce825e9db-996e4385" class="cf-footer-column">
+        <p class="cf-footer-paragraph-18px heading black">Movement Pages</p>
+        <a href="Yoga.html" class="cf-footer-link-18px black">Yoga</a>
+        <a href="#" class="cf-footer-link-18px black">Pilates</a>
+        <a href="#" class="cf-footer-link-18px black">Dance</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="jquery.ripples.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.pic, .hero-subscribe-right').ripples({
+        resolution: 512,
+        dropRadius: 20,
+        perturbance: 0.04
+      });
+    });
+  </script>
+  <script>
+    function showSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+
+    function hideSidebar() {
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+  <script>
+    // Quiz state
+    let currentStep = 0;
+    function getTotalSteps() {
+      // 1: Pregnant, 2: Injury, 3: Assessment, 4: Cherry Picker, 5: Cross Arm Twist, 6: Step Back Lunge (if standing), 7: Balance (if standing), 8: I am..., 9: Intensity, 10: Chill/Dynamic
+      if (quizAnswers.assessment === 'sitting') {
+        return 8;
+      }
+      return 10;
+    }
+    const quizContent = document.getElementById('quiz-content');
+    const nextBtn = document.getElementById('quiz-next-btn');
+    let quizAnswers = {};
+
+    function setProgress(isFinal) {
+      const bar = document.getElementById('quiz-progress-bar');
+      // Step-to-percentage mapping
+      // 1: Pregnant? (0%)
+      // 2: Injury? (16%)
+      // 3: Assessment? (33%)
+      // 4-10: Physical Assessment Activities (33%)
+      // 11: I am... (50%)
+      // 12: Intensity (66%)
+      // 13: Chill/Dynamic (83%)
+      // 14: End (100%)
+      let percent = 0;
+      if (isFinal) {
+        percent = 100;
+      } else {
+        switch (currentStep) {
+          case 1:
+            percent = 0;
+            break;
+          case 2:
+            percent = 16;
+            break;
+          case 3:
+            percent = 33;
+            break;
+          case 4:
+          case 5:
+          case 6:
+          case 7:
+          case 8:
+          case 9:
+          case 10:
+            percent = 33;
+            break;
+          case 11:
+            percent = 50;
+            break;
+          case 12:
+            percent = 66;
+            break;
+          case 13:
+            percent = 83;
+            break;
+          default:
+            percent = 0;
+        }
+      }
+      bar.style.width = percent + '%';
+      if (currentStep > 1 || isFinal) {
+        bar.textContent = percent + '%';
+      } else {
+        bar.textContent = '';
+      }
+    }
+
+    // --- CLASS RECOMMENDATION LOGIC ---
+    const classLogic = [
+      {
+        name: "Yoga 101",
+        injury: ["Yes", "No"],
+        cherryPicker: ["Hard"],
+        crossArmTwist: ["Hard", "Medium"],
+        stepBackLunge: ["Hard", "Medium"],
+        balance: ["Yes", "No"],
+        iam: ["Body", "Consciousness", "Nothing"],
+        intensity: ["Easy"],
+        experience: ["Chill"]
+      },
+      {
+        name: "Transformative",
+        injury: ["No"],
+        cherryPicker: ["Easy", "Medium"],
+        crossArmTwist: ["Easy"],
+        stepBackLunge: ["Easy"],
+        balance: ["Yes"],
+        iam: ["Consciousness", "Soul"],
+        intensity: ["Hard"],
+        experience: ["Dynamic"]
+      },
+      {
+        name: "Conditioning",
+        injury: ["No"],
+        cherryPicker: ["Medium"],
+        crossArmTwist: ["Medium"],
+        stepBackLunge: ["Medium", "Hard"],
+        balance: ["Yes"],
+        iam: ["Body", "Consciousness", "Nothing"],
+        intensity: ["Hard"],
+        experience: ["Dynamic"]
+      },
+      {
+        name: "Sunshine",
+        injury: ["No"],
+        cherryPicker: ["Easy", "Medium", "Hard"],
+        crossArmTwist: ["Easy", "Medium", "Hard"],
+        stepBackLunge: ["Easy", "Medium"],
+        balance: ["Yes"],
+        iam: ["Consciousness", "Soul", "Body"],
+        intensity: ["Medium"],
+        experience: ["Dynamic"]
+      },
+      {
+        name: "Restorative",
+        injury: ["Yes", "No"],
+        cherryPicker: ["Hard"],
+        crossArmTwist: ["Hard"],
+        stepBackLunge: ["Hard"],
+        balance: ["No"],
+        iam: ["Consciousness", "Soul", "Body", "Nothing"],
+        intensity: ["Medium"],
+        experience: ["Chill"]
+      },
+      {
+        name: "Yoga Nidra",
+        injury: ["Yes", "No"],
+        cherryPicker: ["Easy", "Medium", "Hard"],
+        crossArmTwist: ["Easy", "Medium", "Hard"],
+        stepBackLunge: ["Easy", "Medium", "Hard"],
+        balance: ["Yes", "No"],
+        iam: ["Consciousness", "Soul"],
+        intensity: ["Easy", "Medium", "Hard"],
+        experience: ["Chill"]
+      },
+      {
+        name: "AfroBounce",
+        injury: ["No"],
+        cherryPicker: ["Easy"],
+        crossArmTwist: ["Easy"],
+        stepBackLunge: ["Easy"],
+        balance: ["Yes"],
+        iam: ["Body", "soul", "Consciousness", "Nothing"],
+        intensity: ["Hard"],
+        experience: ["Dynamic"]
+      },
+      {
+        name: "Dance 101",
+        injury: ["No"],
+        cherryPicker: ["Easy", "Medium", "Hard"],
+        crossArmTwist: ["Easy", "Medium"],
+        stepBackLunge: ["Easy", "Medium", "Hard"],
+        balance: ["Yes"],
+        iam: ["Body", "soul", "Consciousness", "Nothing"],
+        intensity: ["Easy", "Medium", "Hard"],
+        experience: ["Chill", "Dynamic"]
+      },
+      {
+        name: "Intermediate Dance",
+        injury: ["No"],
+        cherryPicker: ["Easy"],
+        crossArmTwist: ["Easy"],
+        stepBackLunge: ["Easy", "Medium"],
+        balance: ["Yes"],
+        iam: ["Body", "soul", "Consciousness", "Nothing"],
+        intensity: ["Easy", "Medium", "Hard"],
+        experience: ["Dynamic"]
+      },
+      {
+        name: "Advanced Dance",
+        injury: ["No"],
+        cherryPicker: ["Easy"],
+        crossArmTwist: ["Easy"],
+        stepBackLunge: ["Easy"],
+        balance: ["Yes"],
+        iam: ["Body", "soul", "Consciousness", "Nothing"],
+        intensity: ["Hard"],
+        experience: ["Dynamic"]
+      }
+    ];
+
+    function getRecommendedClasses(answers) {
+      return classLogic.filter(cls => {
+        for (let key in cls) {
+          if (key === "name") continue;
+          if (Array.isArray(cls[key])) {
+            if (!cls[key].map(v => v.trim().toLowerCase()).includes((answers[key]||'').trim().toLowerCase())) return false;
+          } else {
+            if (cls[key] && (answers[key]||'').trim().toLowerCase() !== cls[key].trim().toLowerCase()) return false;
+          }
+        }
+        return true;
+      }).map(cls => cls.name);
+    }
+
+    function showPregnantQuestion() {
+      currentStep = 1;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <p style="font-size:1.2em;">Are you Pregnant?</p>
+        <div class="quiz-btn-group">
+          <button class="quiz-btn" id="pregnant-yes">Yes</button>
+          <button class="quiz-btn" id="pregnant-no">No</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('pregnant-yes').onclick = function() {
+        currentStep = getTotalSteps();
+        setProgress(true);
+        quizAnswers.pregnant = 'yes';
+        quizContent.innerHTML = `
+          <p style="font-size:1.2em;">We recommend <a href='Yoga.html#Mommy Flow' style='color:#2e3192;font-weight:bold;'>Mommy Flow</a> or <a href='Yoga.html#Yoga Nidra' style='color:#2e3192;font-weight:bold;'>Yoga Nidra</a> from our Yoga page!</p>
+          <p>Thank you for taking the quiz!</p>
+        `;
+        nextBtn.style.display = 'none';
+      };
+      document.getElementById('pregnant-no').onclick = function() {
+        currentStep = 2;
+        setProgress(false);
+        quizAnswers.pregnant = 'no';
+        showInjuryQuestion();
+      };
+    }
+
+    function showInjuryQuestion() {
+      currentStep = 2;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <p style="font-size:1.2em;">Do you have any serious spinal, neck, or brain injuries?</p>
+        <div class="quiz-btn-group">
+          <button class="quiz-btn" id="injury-yes">Yes</button>
+          <button class="quiz-btn" id="injury-no">No</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('injury-yes').onclick = function() {
+        quizAnswers.injury = 'yes';
+        currentStep = 3;
+        setProgress(false);
+        showNextQuestion();
+      };
+      document.getElementById('injury-no').onclick = function() {
+        quizAnswers.injury = 'no';
+        currentStep = 3;
+        setProgress(false);
+        showNextQuestion();
+      };
+    }
+
+    function showNextQuestion() {
+      currentStep = 3;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.3em;margin-bottom:18px;'>Physical Assessment</div>
+        <p style=\"font-size:1.1em;\">Are you standing or sitting for this assessment? <br><span style='font-size:0.95em'>(if you can stand, please stand)</span></p>
+        <div class=\"quiz-btn-group\">\n          <button class=\"quiz-btn\" id=\"assessment-standing\">Standing</button>\n          <button class=\"quiz-btn\" id=\"assessment-sitting\">Sitting</button>\n        </div>\n      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('assessment-standing').onclick = function() {
+        quizAnswers.assessment = 'standing';
+        currentStep = 4;
+        setProgress(false);
+        showPhysicalNext();
+      };
+      document.getElementById('assessment-sitting').onclick = function() {
+        quizAnswers.assessment = 'sitting';
+        currentStep = 4;
+        setProgress(false);
+        showPhysicalNext(true);
+      };
+    }
+
+    function showPhysicalNext(sitting) {
+      currentStep = 5;
+      setProgress(false);
+      let videoDemo = sitting
+        ? `<div style='margin:16px 0;'><em>[Sitting Cherry Picker video demo will appear here]</em></div>`
+        : `<div style='margin:16px 0;'><em>[Standing Cherry Picker video demo will appear here]</em></div>`;
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Cherry Picker Activity</div>
+        ${videoDemo}
+        <p style='font-size:1.1em;'>After watching the demonstration, how did you find the Cherry Picker activity?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='cherry-easy'>Easy</button>
+          <button class='quiz-btn' id='cherry-medium'>Medium</button>
+          <button class='quiz-btn' id='cherry-hard'>Hard</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('cherry-easy').onclick = function() {
+        quizAnswers.cherryPicker = 'easy';
+        currentStep = 6;
+        setProgress(false);
+        showCrossArmTwist(sitting);
+      };
+      document.getElementById('cherry-medium').onclick = function() {
+        quizAnswers.cherryPicker = 'medium';
+        currentStep = 6;
+        setProgress(false);
+        showCrossArmTwist(sitting);
+      };
+      document.getElementById('cherry-hard').onclick = function() {
+        quizAnswers.cherryPicker = 'hard';
+        currentStep = 6;
+        setProgress(false);
+        showCrossArmTwist(sitting);
+      };
+      // Save if user is sitting for later recommendation
+      window.quizSittingRecommendation = sitting === true;
+    }
+
+    function showCrossArmTwist(sitting) {
+      currentStep = 7;
+      setProgress(false);
+      let videoDemo = sitting
+        ? `<div style='margin:16px 0;'><em>[Sitting Cross Arm Twist video demo will appear here]</em></div>`
+        : `<div style='margin:16px 0;'><em>[Standing Cross Arm Twist video demo will appear here]</em></div>`;
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Cross Arm Twist Activity</div>
+        ${videoDemo}
+        <p style='font-size:1.1em;'>After watching the demonstration, how did you find the Cross Arm Twist activity?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='twist-easy'>Easy</button>
+          <button class='quiz-btn' id='twist-medium'>Medium</button>
+          <button class='quiz-btn' id='twist-hard'>Hard</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('twist-easy').onclick = function() {
+        quizAnswers.crossArmTwist = 'easy';
+        currentStep = 8;
+        setProgress(false);
+        showStepBackLunge(sitting);
+      };
+      document.getElementById('twist-medium').onclick = function() {
+        quizAnswers.crossArmTwist = 'medium';
+        currentStep = 8;
+        setProgress(false);
+        showStepBackLunge(sitting);
+      };
+      document.getElementById('twist-hard').onclick = function() {
+        quizAnswers.crossArmTwist = 'hard';
+        currentStep = 8;
+        setProgress(false);
+        showStepBackLunge(sitting);
+      };
+    }
+
+    function showStepBackLunge(sitting) {
+      if (sitting) {
+        currentStep = getTotalSteps();
+        setProgress(true);
+        showQuizEnd();
+        return;
+      }
+      currentStep = 9;
+      setProgress(false);
+      let videoDemo = `<div style='margin:16px 0;'><em>[Step Back Lunge video demo will appear here]</em></div>`;
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Step Back Lunge Activity</div>
+        ${videoDemo}
+        <p style='font-size:1.1em;'>After watching the demonstration, how did you find the Step Back Lunge activity?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='lunge-easy'>Easy</button>
+          <button class='quiz-btn' id='lunge-medium'>Medium</button>
+          <button class='quiz-btn' id='lunge-hard'>Hard</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('lunge-easy').onclick = function() {
+        quizAnswers.stepBackLunge = 'easy';
+        currentStep = 10;
+        setProgress(false);
+        showBalanceQuestion();
+      };
+      document.getElementById('lunge-medium').onclick = function() {
+        quizAnswers.stepBackLunge = 'medium';
+        currentStep = 10;
+        setProgress(false);
+        showBalanceQuestion();
+      };
+      document.getElementById('lunge-hard').onclick = function() {
+        quizAnswers.stepBackLunge = 'hard';
+        currentStep = 10;
+        setProgress(false);
+        showBalanceQuestion();
+      };
+    }
+
+    function showBalanceQuestion() {
+      currentStep = 10;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Balance Assessment</div>
+        <p style='font-size:1.1em;'>Do you have enough balance to sustain standing for prolonged periods?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='balance-yes'>Yes</button>
+          <button class='quiz-btn' id='balance-no'>No</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('balance-yes').onclick = function() {
+        quizAnswers.balance = 'yes';
+        currentStep = 11;
+        setProgress(false);
+        showSentenceQuestion();
+      };
+      document.getElementById('balance-no').onclick = function() {
+        quizAnswers.balance = 'no';
+        currentStep = 11;
+        setProgress(false);
+        showSentenceQuestion();
+      };
+    }
+
+    function showSentenceQuestion() {
+      currentStep = 11;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Self-Reflection</div>
+        <p style='font-size:1.1em;'>Complete the sentence:<br><span style='font-weight:bold;'>"I am ...."</span></p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='iam-body'>Body</button>
+          <button class='quiz-btn' id='iam-soul'>Soul</button>
+          <button class='quiz-btn' id='iam-consciousness'>Consciousness</button>
+          <button class='quiz-btn' id='iam-nothing'>Nothing</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('iam-body').onclick = function() {
+        quizAnswers.iam = 'body';
+        currentStep = 12;
+        setProgress(false);
+        showIntensityQuestion();
+      };
+      document.getElementById('iam-soul').onclick = function() {
+        quizAnswers.iam = 'soul';
+        currentStep = 12;
+        setProgress(false);
+        showIntensityQuestion();
+      };
+      document.getElementById('iam-consciousness').onclick = function() {
+        quizAnswers.iam = 'consciousness';
+        currentStep = 12;
+        setProgress(false);
+        showIntensityQuestion();
+      };
+      document.getElementById('iam-nothing').onclick = function() {
+        quizAnswers.iam = 'nothing';
+        currentStep = 12;
+        setProgress(false);
+        showIntensityQuestion();
+      };
+    }
+
+    function showIntensityQuestion() {
+      currentStep = 12;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Activity Intensity</div>
+        <p style='font-size:1.1em;'>What Intensity level do you prefer for your activities?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='intensity-easy'>Easy</button>
+          <button class='quiz-btn' id='intensity-medium'>Medium</button>
+          <button class='quiz-btn' id='intensity-hard'>Hard</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('intensity-easy').onclick = function() {
+        quizAnswers.intensity = 'easy';
+        currentStep = 13;
+        setProgress(false);
+        showChillDynamicQuestion();
+      };
+      document.getElementById('intensity-medium').onclick = function() {
+        quizAnswers.intensity = 'medium';
+        currentStep = 13;
+        setProgress(false);
+        showChillDynamicQuestion();
+      };
+      document.getElementById('intensity-hard').onclick = function() {
+        quizAnswers.intensity = 'hard';
+        currentStep = 13;
+        setProgress(false);
+        showChillDynamicQuestion();
+      };
+    }
+
+    function showChillDynamicQuestion() {
+      currentStep = 13;
+      setProgress(false);
+      quizContent.innerHTML = `
+        <div class='quiz-title' style='font-size:1.1em;margin-bottom:18px;'>Experience Preference</div>
+        <p style='font-size:1.1em;'>Do you want an experience that is more chill or dynamic?</p>
+        <div class='quiz-btn-group'>
+          <button class='quiz-btn' id='exp-chill'>Chill</button>
+          <button class='quiz-btn' id='exp-dynamic'>Dynamic</button>
+        </div>
+      `;
+      nextBtn.style.display = 'none';
+      document.getElementById('exp-chill').onclick = function() {
+        quizAnswers.experience = 'chill';
+        currentStep = 14;
+        setProgress(true);
+        showQuizEnd();
+      };
+      document.getElementById('exp-dynamic').onclick = function() {
+        quizAnswers.experience = 'dynamic';
+        currentStep = 14;
+        setProgress(true);
+        showQuizEnd();
+      };
+    }
+
+    function showQuizEnd() {
+      currentStep = 14;
+      setProgress(true);
+      let recommendation = '';
+      if (window.quizSittingRecommendation) {
+        recommendation = `<p style='font-size:1.1em; color:#222;'>We recommend <a href='Yoga.html#Chair Flow' style='color:#2e3192;font-weight:bold;'>Chair Flow</a> from our Yoga page!</p>`;
+      }
+      // Get class recommendations
+      const recommendedClasses = getRecommendedClasses(quizAnswers);
+      if (recommendedClasses.length > 0) {
+        recommendation += `<div style='margin-top:24px; color:#222;'><b>Recommended Classes:</b><ul style='margin:12px 0 0 0; padding:0; list-style:none;'>` +
+          recommendedClasses.map(cls => `<li style='margin:8px 0;'><a href='${getClassLink(cls)}' style='color:#2e3192;font-weight:bold;'>${cls}</a></li>`).join('') +
+          `</ul></div>`;
+      } else if (!window.quizSittingRecommendation) {
+        recommendation += `<div style='margin-top:24px; color:#222;'><b>No specific class matches found. Please consult with an instructor for personalized guidance!</b></div>`;
+      }
+      quizContent.innerHTML = `
+        <p style='color:#222;'>Thank you for taking the quiz!</p>
+        ${recommendation}
+      `;
+      nextBtn.style.display = 'none';
+    }
+
+    // Helper to get class links (assumes Yoga/Dance classes)
+    function getClassLink(cls) {
+      const yogaClasses = ["Yoga 101", "Transformative", "Conditioning", "Sunshine", "Restorative", "Yoga Nidra"];
+      const danceClasses = ["AfroBounce", "Dance 101", "Dance Intermediate", "Dance Advanced"];
+      if (yogaClasses.includes(cls)) return `Yoga.html#${encodeURIComponent(cls)}`;
+      if (danceClasses.includes(cls)) return `Dance.html#${encodeURIComponent(cls)}`;
+      return '#';
+    }
+
+    // Start quiz
+    showPregnantQuestion();
+  </script>
+</body>
+</html> 
