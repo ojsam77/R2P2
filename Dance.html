@@ -28,17 +28,20 @@
     .dance-sections-container {
       display: flex;
       flex-direction: column;
-      gap: 32px;
-      width: 100%;
+      gap: 40px;
+      width: 90%;
+      margin: 0 auto;
     }
     .dance-row {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       width: 100%;
+      margin-left: 5vw;
     }
     .dance-row.right {
       justify-content: flex-end;
+      margin-left: auto;
     }
     .dance-section {
       background: linear-gradient(135deg, rgba(74, 215, 4, 0.25) 0%, rgba(34, 139, 34, 0.35) 100%), url('src/assets/lily-pad-texture.png');
@@ -46,7 +49,7 @@
       background-blend-mode: overlay, multiply;
       box-shadow: 0 2px 8px 0 rgba(44, 62, 80, 0.07) inset;
       border-radius: 20px;
-      width: 60%;
+      width: 65%;
       min-height: 220px;
       padding: 40px 24px 32px 24px;
       text-align: center;
@@ -59,7 +62,8 @@
       justify-content: space-between;
       gap: 48px;
       box-sizing: border-box;
-      margin-bottom: 32px;
+      margin-bottom: 0;
+      z-index: 1;
     }
     .dance-section:hover, .dance-section:focus {
       animation: dance-bounce 0.7s cubic-bezier(.4,1.4,.6,1);
@@ -231,7 +235,7 @@
   </nav>
   <main>
 
-      <h1 class="main-title">World Dance <span class="main-title-emoji">🌍</span></h1>
+      <h1 class="heading-2" style="text-align:center; color:#2e3192; margin-top:0; padding-top:0; font-size:32px; font-weight:700; line-height:115%;"><span style="text-decoration: underline;">World Dance</span> <span class='main-title-emoji'>🌍</span></h1>
       <div class="dance-sections-container">
         <div class="dance-row">
           <div class="dance-section">
