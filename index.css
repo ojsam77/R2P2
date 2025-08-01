@@ -12,6 +12,8 @@
 html {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 :root {
@@ -34,6 +36,8 @@ body {
   background: rgb(135, 177, 69);
   background: linear-gradient(357deg, rgba(74, 215, 4, 0.667) 0%, rgba(226, 236, 210, 1) 21%, rgba(242, 246, 234, 1) 84%, rgba(255, 255, 255, 1) 100%);
   max-width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .logo img {
@@ -177,6 +181,11 @@ a p :hover {
   height: 80%;
   margin: 2% 10%;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.619);
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  padding: 20px;
 }
 
 p {
@@ -218,8 +227,11 @@ h3 {
 .content h1 {
   text-align: center;
   font-size: 60px;
-  color: #2e3192;
+  color: #646cff;
   text-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
 }
 
 .status {
@@ -244,42 +256,36 @@ h3 {
 }
 
 .cf-service-paragraph {
-  color: #222467;
-  text-align: left;
-  margin-top: -23px;
-  margin-bottom: 0;
-  font-family: Montserrat;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 156%;
+  color: #1a1c57;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .cf-service-heading {
   color: #2e3192;
-  text-align: center;
-  letter-spacing: -.16px;
-  margin-bottom: 16px;
-  font-family: Montserrat, sans-serif;
   font-size: 24px;
-  font-weight: 700;
-  line-height: 133%;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .cf-service-image {
-  float: none;
-  clear: none;
-  text-align: center;
-  border-radius: 16px;
-  align-self: center;
-  position: static;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .cf-service-number {
-  color: #fff;
-  text-align: center;
-  letter-spacing: -.16px;
-  font-size: 26px;
-  line-height: 123%;
+  color: #0ca756;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .cf-features-section-2-icon-wrap {
@@ -526,13 +532,11 @@ h3 {
 }
 
 .floating {
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
-  width: 479px;
+  max-width: 100%;
+  height: auto;
+  animation: floating 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes floating {
@@ -897,7 +901,7 @@ h3 {
 }
 
 .cf-footer-column {
-  width: 100%;
+  text-align: left;
 }
 
 .cf-footer-grid {
@@ -1165,22 +1169,22 @@ h3 {
   html {
     font-size: 14px;
   }
-
   h1 {
-    font-size: 1.8rem;
+    font-size: 32px;
   }
-
   h2 {
-    font-size: 1.5rem;
+    font-size: 28px;
   }
-
   h3 {
-    font-size: 1.3rem;
+    font-size: 24px;
   }
-
   p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
+  }
+  .floating {
+    max-width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -1188,17 +1192,18 @@ h3 {
   html {
     font-size: 12px;
   }
-
   .container {
-    padding: 0 1rem;
+    padding: 0 15px;
   }
-
   .hero-wrapper {
     flex-direction: column;
   }
-
   .nav-menu-three {
-    padding: 1rem;
+    padding: 15px;
+  }
+  .floating {
+    max-width: 70%;
+    margin: 0 auto;
   }
 }
 
@@ -1301,22 +1306,22 @@ h3 {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #f2f6ea;
-    box-shadow: 0 2px 8px rgba(46,49,146,0.08);
+    background: #2e3192;
+    box-shadow: 0 2px 8px rgba(46,49,146,0.15);
     transition: background 0.2s, box-shadow 0.2s;
   }
   .sidebar .sidebar-social a:hover {
-    background: #2e3192;
-    box-shadow: 0 4px 16px rgba(46,49,146,0.18);
+    background: #0ca756;
+    box-shadow: 0 4px 16px rgba(12,167,86,0.25);
   }
   .sidebar .sidebar-social img, .sidebar .sidebar-social svg {
     width: 22px;
     height: 22px;
-    filter: grayscale(0.2) brightness(0.8);
+    filter: brightness(0) invert(1);
     transition: filter 0.2s;
   }
   .sidebar .sidebar-social a:hover img, .sidebar .sidebar-social a:hover svg {
-    filter: none;
+    filter: brightness(0) invert(1);
   }
   .sidebar .sidebar-embark {
     width: 100%;
@@ -1405,6 +1410,8 @@ h3 {
 .gallery-image-wrapper {
   position: relative;
   overflow: hidden;
+  z-index: 1;
+  margin-bottom: 20px;
 }
 
 .gallery-image-overlay {
@@ -1425,6 +1432,7 @@ h3 {
 .gallery-image-description {
   position: relative;
   z-index: 2;
+  margin-top: 15px;
 }
 
 .gallery-image {
@@ -1679,18 +1687,31 @@ h3 {
   align-items: center;
   max-width: 46%;
   display: flex;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  color: #1a1c57;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-split img {
+  margin-bottom: 20px;
+}
+
+.hero-split h1,
+.hero-split h2,
+.hero-split h3,
+.hero-split p {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 15px;
 }
 
 .team-member-image {
+  width: 100%;
+  height: 300px;
   object-fit: cover;
-  border-radius: 50%;
-  width: 270px;
-  height: 270px;
-  margin-bottom: 24px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-heading-center {
@@ -1702,8 +1723,10 @@ h3 {
 
 img {
   max-width: 100%;
-  vertical-align: middle;
-  display: inline-block;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .team-card {
@@ -1717,10 +1740,11 @@ img {
 
 .team-member-name {
   color: #2e3192;
-  margin-bottom: 6px;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .team-member-name:hover {
@@ -1894,7 +1918,19 @@ img {
 
   .hero-split {
     max-width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+  }
+
+  .hero-split img {
+    margin-bottom: 25px;
+  }
+  
+  .cf-service-image {
+    margin-bottom: 25px;
+  }
+  
+  .gallery-image-wrapper {
+    margin-bottom: 25px;
   }
 
   .cf-features-section-2-grid {
@@ -2120,5 +2156,106 @@ img {
 @media (max-width: 600px) {
   .floater .gallery-link {
     font-size: 12px;
+  }
+}
+
+.button-primary {
+  color: #fff;
+  background-color: #2e3192;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  min-height: 44px;
+  line-height: 1.2;
+}
+
+.button-primary:hover {
+  background-color: #0ca756;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 49, 146, 0.3);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .button-primary {
+    padding: 16px 32px;
+    font-size: 18px;
+    min-height: 48px;
+  }
+  
+  .cf-form-text-field {
+    padding: 16px 20px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+  
+  .cf-form-submit-button {
+    padding: 16px 32px;
+    font-size: 16px;
+    min-height: 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .button-primary {
+    padding: 18px 36px;
+    font-size: 18px;
+    min-height: 52px;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .cf-form-text-field {
+    padding: 18px 20px;
+    font-size: 16px;
+    min-height: 52px;
+  }
+  
+  .cf-form-submit-button {
+    padding: 18px 36px;
+    font-size: 18px;
+    min-height: 52px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .cf-form-text-field:focus,
+  .cf-form-submit-button:focus,
+  .button-primary:focus {
+    outline: 2px solid #0ca756;
+    outline-offset: 2px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .cf-form-text-field:focus,
+  .cf-form-submit-button:focus,
+  .button-primary:focus {
+    outline: 3px solid #0ca756;
+    outline-offset: 3px;
   }
 }
